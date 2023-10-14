@@ -1,0 +1,7 @@
+{
+  "name": "uts-ecommerce",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
