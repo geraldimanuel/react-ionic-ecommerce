@@ -1,32 +1,23 @@
 import {
-	IonButtons,
 	IonContent,
 	IonHeader,
-	IonMenuButton,
 	IonPage,
-	IonTitle,
-	IonToolbar,
 	IonCard,
 	IonCardContent,
-	IonCardHeader,
-	IonCardSubtitle,
-	IonCardTitle,
 	IonButton,
 	IonGrid,
 	IonRow,
 	IonCol,
-	IonItem,
 	IonAvatar,
 	IonIcon,
 } from "@ionic/react";
-import React, { useRef } from "react";
+import React from "react";
 
 import "./Profile.css";
 import {
 	logoDiscord,
 	logoInstagram,
 	logoLinkedin,
-	logoTwitter,
 	logoWhatsapp,
 } from "ionicons/icons";
 import { Link } from "react-router-dom";

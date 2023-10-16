@@ -1,12 +1,8 @@
 import {
-	IonButton,
-	IonButtons,
 	IonCard,
 	IonCardContent,
 	IonCardHeader,
 	IonCardSubtitle,
-	IonCardTitle,
-	IonCol,
 	IonGrid,
 	IonIcon,
 	IonRow,
@@ -15,7 +11,6 @@ import {
 import "./Card.css";
 import { bagAdd, heart } from "ionicons/icons";
 import { connect } from "react-redux";
-// import { addToCart, addToWishlist } from "../scripts/reducers";
 
 import { addToWishlist } from "../scripts/reducers";
 

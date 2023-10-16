@@ -14,13 +14,12 @@ import {
 	IonItemSliding,
 	IonPage,
 	IonRow,
-	IonTitle,
 	IonToast,
 	IonToolbar,
 } from "@ionic/react";
 
 import React, { Key, useEffect, useRef, useState } from "react";
-import { connect, useSelector } from "react-redux";
+import { connect } from "react-redux";
 
 import { add, remove, trash } from "ionicons/icons";
 

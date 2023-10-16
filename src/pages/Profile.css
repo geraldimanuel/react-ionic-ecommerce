@@ -1,7 +1,6 @@
 ion-card {
     font-family: 'Poppins', sans-serif;
     border-radius: 20px;
-
 }
 
 ion-icon {
@@ -12,17 +11,12 @@ ion-button {
     --background: black;
     --background-hover: black;
     --background-activated: white;
-    /* --background-focused: #88f4be; */
   
     --color: white;
     --color-activated: black ;
   
     --border-radius: 12px;
-    /* --border-color: #000;
-    --border-style: solid;
-    --border-width: 2px;
-   */
-    /* --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25); */
+
 
     font-family: 'Poppins', sans-serif;
 

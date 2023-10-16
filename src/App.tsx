@@ -1,4 +1,4 @@
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import {
 	IonApp,
 	IonContent,
@@ -36,19 +36,14 @@ import "./theme/variables.css";
 import Wishlist from "./pages/Wishlist";
 
 import {
-	headsetOutline,
 	heartOutline,
 	homeOutline,
-	list,
 	personCircleOutline,
-	settings,
 	timeOutline,
-	warning,
 } from "ionicons/icons";
 import History from "./pages/History";
 import Profile from "./pages/Profile";
 import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
 import store from "./scripts/store";
 import Cart from "./pages/Cart";
 

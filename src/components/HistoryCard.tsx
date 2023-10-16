@@ -1,6 +1,4 @@
 import {
-	IonButton,
-	IonButtons,
 	IonCard,
 	IonCardContent,
 	IonCardHeader,
@@ -13,7 +11,7 @@ import {
 } from "@ionic/react";
 
 import "./HistoryCard.css";
-import { bagAdd, chevronForward, heart } from "ionicons/icons";
+import { chevronForward } from "ionicons/icons";
 
 type props = {
 	transactionCode: string;

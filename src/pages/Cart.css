@@ -20,11 +20,7 @@ ion-content {
 ion-toolbar.footer {
     --background: black;
     --color: white;
-  
-  
-    /* --min-height: 80px; */
-    /* --padding-top: 20px; */
-    /* --padding-bottom: 20px; */
+
   }
 
   p.harga{

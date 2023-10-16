@@ -1,12 +1,9 @@
 import {
-	IonButtons,
 	IonCol,
 	IonContent,
 	IonGrid,
 	IonHeader,
 	IonIcon,
-	IonItem,
-	IonMenuButton,
 	IonModal,
 	IonPage,
 	IonRow,
