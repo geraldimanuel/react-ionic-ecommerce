@@ -1,0 +1,14 @@
+ion-icon.carousel {
+    padding-right: 5px;
+}
+
+ion-title{
+    font-family: 'Poppins', sans-serif;
+}
+
+ion-badge {
+    z-index: 1;
+    position: absolute;
+    top: -2px;
+    right: 16px;
+}

@@ -1,0 +1,18 @@
+ion-img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;   
+}
+
+h3, h5 {
+    font-family: 'Poppins', sans-serif;
+
+    font-weight: 600;
+    margin: 0;
+    padding: 3px;
+}
+
+ion-content {
+    padding-top: 20px;
+}
+

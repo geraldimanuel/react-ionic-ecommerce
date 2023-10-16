@@ -1,0 +1,25 @@
+ion-card-header {
+    padding-top: 5px;
+    padding-bottom: 0px;
+}
+
+ion-grid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+ion-card-content {
+   padding: 0;
+}
+
+ion-card-subtitle{
+    padding: 0px;
+}
+
+p.heading{
+    margin: 0;
+}
+
+ion-card {
+    margin: 13px;
+}
