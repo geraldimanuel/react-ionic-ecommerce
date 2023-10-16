@@ -9,10 +9,11 @@ ion-title{
 ion-badge {
     z-index: 1;
     position: absolute;
-    top: -2px;
+    top: -4px;
     right: 16px;
 }
 
 ion-toolbar{
-   --min-height: 55px;
+   --min-height: 60px;
+   padding: 0  0;
 }

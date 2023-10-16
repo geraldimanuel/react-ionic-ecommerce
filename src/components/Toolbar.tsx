@@ -34,7 +34,7 @@ const Toolbar: React.FC<props> = ({ title, cartData }) => {
 
 	return (
 		<>
-			<IonToolbar>
+			<IonToolbar className="main">
 				<IonButtons slot="start">
 					<IonMenuButton color="dark" />
 				</IonButtons>

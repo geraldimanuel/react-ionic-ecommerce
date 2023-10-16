@@ -52,7 +52,6 @@ const History: React.FC<props> = ({ orderData }) => {
 						<IonRow>
 							<h4>Products:</h4>
 						</IonRow>
-
 						{selectedOrder?.products?.map(
 							(
 								product: {
@@ -74,15 +73,17 @@ const History: React.FC<props> = ({ orderData }) => {
 								</IonRow>
 							)
 						)}
-						<IonRow className="ion-padding-vertical">
-							<h4>
-								Total:{" "}
-								{selectedOrder.total.toLocaleString("id-ID", {
-									style: "currency",
-									currency: "IDR",
-								})}
-							</h4>
-						</IonRow>
+						{isDetail && (
+							<IonRow className="ion-padding-vertical">
+								<h4>
+									Total:{" "}
+									{selectedOrder.total.toLocaleString("id-ID", {
+										style: "currency",
+										currency: "IDR",
+									})}
+								</h4>
+							</IonRow>
+						)}
 					</IonGrid>
 				</IonContent>
 			</IonModal>
