@@ -133,7 +133,12 @@ const Wishlist: React.FC<props> = ({
 											</IonCol>
 											<IonCol size="">
 												<h3>{product.name}</h3>
-												<h5>Rp. {product.price}</h5>
+												<h5>
+													{product.price.toLocaleString("id-ID", {
+														style: "currency",
+														currency: "IDR",
+													})}
+												</h5>
 											</IonCol>
 										</IonRow>
 									</IonGrid>

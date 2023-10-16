@@ -1,0 +1,16 @@
+ion-card-title {
+	font-family: "Poppins", sans-serif;
+    font-weight: 700;
+}
+
+ion-card-subtitle {
+	font-family: "Poppins", sans-serif;
+}
+
+h3 {
+    font-family: "Poppins", sans-serif;
+}
+
+ion-card.history{
+    padding: 15px;
+}

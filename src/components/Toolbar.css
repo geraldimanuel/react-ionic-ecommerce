@@ -12,3 +12,7 @@ ion-badge {
     top: -2px;
     right: 16px;
 }
+
+ion-toolbar{
+   --min-height: 55px;
+}

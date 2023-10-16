@@ -90,7 +90,10 @@ const Home: React.FC<props> = ({ products, addToWishlist, addToCart }) => {
 										<Card
 											img="https://ionicframework.com/docs/img/demos/card-media.png"
 											product={product.name}
-											price={product.price}
+											price={product.price.toLocaleString("id-ID", {
+												style: "currency",
+												currency: "IDR",
+											})}
 											wishlistProps={() => {
 												addToWishlist(product);
 												setToastMessage("Product added to wishlist!");

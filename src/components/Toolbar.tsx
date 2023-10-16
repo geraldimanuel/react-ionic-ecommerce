@@ -15,9 +15,23 @@ import { useEffect, useState } from "react";
 
 type props = {
 	title: string;
+	cartData: any;
 };
 
-const Toolbar: React.FC<props> = ({ title }) => {
+const Toolbar: React.FC<props> = ({ title, cartData }) => {
+	const [cartCount, setCartCount] = useState(0);
+
+	useEffect(() => {
+		let count = 0;
+
+		// only count unique products
+		cartData.forEach(() => {
+			count += 1;
+		});
+
+		setCartCount(count);
+	}, [cartData]);
+
 	return (
 		<>
 			<IonToolbar>
@@ -27,7 +41,7 @@ const Toolbar: React.FC<props> = ({ title }) => {
 				<IonTitle>{title}</IonTitle>
 				<IonButtons slot="end">
 					<Link to="/cart">
-						<IonBadge color={"danger"}>2</IonBadge>
+						<IonBadge color={"danger"}>{cartCount}</IonBadge>
 						<IonIcon className="carousel" icon={cart} size="small" />
 					</Link>
 				</IonButtons>
@@ -38,7 +52,7 @@ const Toolbar: React.FC<props> = ({ title }) => {
 
 const mapStateToProps = (state: any) => {
 	return {
-		cart: state.products.cart,
+		cartData: state.products.cart,
 	};
 };
 

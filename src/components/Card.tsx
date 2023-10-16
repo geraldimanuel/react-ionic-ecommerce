@@ -22,7 +22,7 @@ import { addToWishlist } from "../scripts/reducers";
 type props = {
 	img: string;
 	product: string;
-	price: number;
+	price: string;
 	wishlistProps: any;
 	cartProps: any;
 };
@@ -38,7 +38,7 @@ const Card: React.FC<props> = ({
 		<IonCard>
 			<img alt="Silhouette of mountains" src={img} />
 			<IonCardHeader>
-				<IonCardSubtitle>Rp. {price}</IonCardSubtitle>
+				<IonCardSubtitle>{price}</IonCardSubtitle>
 				<p className="heading">{product}</p>
 			</IonCardHeader>
 

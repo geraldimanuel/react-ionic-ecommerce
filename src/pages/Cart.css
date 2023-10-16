@@ -1,0 +1,44 @@
+ion-img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;   
+}
+
+h3, h5,h4 {
+    font-family: 'Poppins', sans-serif;
+
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 5px;
+}
+
+ion-content {
+    padding-top: 20px;
+}
+
+ion-toolbar.footer {
+    --background: black;
+    --color: white;
+  
+  
+    /* --min-height: 80px; */
+    /* --padding-top: 20px; */
+    /* --padding-bottom: 20px; */
+  }
+
+  p.harga{
+    font-family: 'Poppins', sans-serif;
+
+    font-weight:400;
+    margin: 0;
+    font-size: 13px;
+  }
+
+  p.checkout{
+    font-family: 'Poppins', sans-serif;
+
+    font-weight:600;
+    margin: 0;
+    font-size: 13px;
+  }
