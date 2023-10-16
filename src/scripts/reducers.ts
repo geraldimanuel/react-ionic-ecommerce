@@ -70,7 +70,14 @@ const productSlice = createSlice({
 	initialState,
 	reducers: {
 		addToWishlist: (state: any, action) => {
-			state.wishlist.push(action.payload);
+			// if product is already in wishlist, do nothing
+			const existingProduct = state.wishlist.find(
+				(product: any) => product.id === action.payload.id
+			);
+
+			if (!existingProduct) {
+				state.wishlist.push(action.payload);
+			}
 		},
 
 		removeFromWishlist: (state: any, action) => {
