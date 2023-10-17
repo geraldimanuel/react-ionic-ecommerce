@@ -10,6 +10,8 @@ import {
 	IonMenu,
 	IonMenuToggle,
 	IonRouterOutlet,
+	IonToggle,
+	ToggleCustomEvent,
 	setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
@@ -46,48 +48,108 @@ import Profile from "./pages/Profile";
 import { Provider } from "react-redux";
 import store from "./scripts/store";
 import Cart from "./pages/Cart";
+import { useEffect, useState } from "react";
 
 setupIonicReact();
 
-const App: React.FC = () => (
-	<Provider store={store}>
-		<IonApp>
-			<IonReactRouter>
-				<IonMenu contentId="main">
-					<IonHeader></IonHeader>
-					<IonContent>
-						<IonList>
-							<IonMenuToggle>
-								<IonItem button routerLink="/">
-									<IonIcon slot="start" icon={homeOutline}></IonIcon>
-									<IonLabel>Home</IonLabel>
-								</IonItem>
-								<IonItem button routerLink="/wishlist">
-									<IonIcon slot="start" icon={heartOutline}></IonIcon>
-									<IonLabel>Wishlist</IonLabel>
-								</IonItem>
-								<IonItem button routerLink="/history">
-									<IonIcon slot="start" icon={timeOutline}></IonIcon>
-									<IonLabel>History</IonLabel>
-								</IonItem>
-								<IonItem button routerLink="/profile">
-									<IonIcon slot="start" icon={personCircleOutline}></IonIcon>
-									<IonLabel>Profile</IonLabel>
-								</IonItem>
-							</IonMenuToggle>
-						</IonList>
-					</IonContent>
-				</IonMenu>
-				<IonRouterOutlet id="main">
-					<Route exact path="/" component={Home} />
-					<Route path="/wishlist" component={Wishlist} />
-					<Route path="/history" component={History} />
-					<Route path="/profile" component={Profile} />
-					<Route path="/cart" component={Cart} />
-				</IonRouterOutlet>
-			</IonReactRouter>
-		</IonApp>
-	</Provider>
-);
+const App: React.FC = () => {
+	const [themeToggle, setThemeToggle] = useState(false);
+
+	// Listen for the toggle check/uncheck to toggle the dark theme
+	const toggleChange = (ev: ToggleCustomEvent) => {
+		toggleDarkTheme(ev.detail.checked);
+	};
+
+	// Add or remove the "dark" class on the document body
+	const toggleDarkTheme = (shouldAdd: boolean) => {
+		document.body.classList.toggle("dark", shouldAdd);
+	};
+
+	// Check/uncheck the toggle and update the theme based on isDark
+	const initializeDarkTheme = (isDark: boolean) => {
+		setThemeToggle(isDark);
+		toggleDarkTheme(isDark);
+	};
+
+	useEffect(() => {
+		// Use matchMedia to check the user preference
+		const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+		// Initialize the dark theme based on the initial
+		// value of the prefers-color-scheme media query
+		initializeDarkTheme(prefersDark.matches);
+
+		// Listen for changes to the prefers-color-scheme media query
+		prefersDark.addEventListener("change", (mediaQuery) =>
+			initializeDarkTheme(mediaQuery.matches)
+		);
+	}, []);
+
+	return (
+		<Provider store={store}>
+			<IonApp>
+				<IonReactRouter>
+					<IonMenu contentId="main">
+						<IonHeader></IonHeader>
+						<IonContent>
+							<IonList>
+								<IonMenuToggle>
+									<IonItem button routerLink="/">
+										<IonIcon
+											color={"dark"}
+											slot="start"
+											icon={homeOutline}
+										></IonIcon>
+										<IonLabel>Home</IonLabel>
+									</IonItem>
+									<IonItem button routerLink="/wishlist">
+										<IonIcon
+											color={"dark"}
+											slot="start"
+											icon={heartOutline}
+										></IonIcon>
+										<IonLabel>Wishlist</IonLabel>
+									</IonItem>
+									<IonItem button routerLink="/history">
+										<IonIcon
+											color={"dark"}
+											slot="start"
+											icon={timeOutline}
+										></IonIcon>
+										<IonLabel>History</IonLabel>
+									</IonItem>
+									<IonItem button routerLink="/profile">
+										<IonIcon
+											color={"dark"}
+											slot="start"
+											icon={personCircleOutline}
+										></IonIcon>
+										<IonLabel>Profile</IonLabel>
+									</IonItem>
+									<IonItem>
+										<IonToggle
+											checked={themeToggle}
+											onIonChange={toggleChange}
+											justify="space-between"
+										>
+											Dark Mode
+										</IonToggle>
+									</IonItem>
+								</IonMenuToggle>
+							</IonList>
+						</IonContent>
+					</IonMenu>
+					<IonRouterOutlet id="main">
+						<Route exact path="/" component={Home} />
+						<Route path="/wishlist" component={Wishlist} />
+						<Route path="/history" component={History} />
+						<Route path="/profile" component={Profile} />
+						<Route path="/cart" component={Cart} />
+					</IonRouterOutlet>
+				</IonReactRouter>
+			</IonApp>
+		</Provider>
+	);
+};
 
 export default App;

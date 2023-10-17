@@ -10,6 +10,8 @@ import {
 	IonCol,
 	IonAvatar,
 	IonIcon,
+	IonTitle,
+	IonText,
 } from "@ionic/react";
 import React from "react";
 
@@ -38,13 +40,14 @@ const Profile: React.FC = () => {
 									<IonAvatar>
 										<img
 											alt="Silhouette of a person's head"
-											src="https://ionicframework.com/docs/img/demos/avatar.svg"
+											src="./assets/Geri.jpg"
+											className="profile"
 										/>
 									</IonAvatar>
 								</IonRow>
 								<IonRow>
 									<IonCol>
-										<p className="heading">Gerald Imanuel Wijaya</p>
+										<IonText className="heading">Gerald Imanuel Wijaya</IonText>
 									</IonCol>
 								</IonRow>
 								<IonRow>
@@ -69,22 +72,30 @@ const Profile: React.FC = () => {
 											}}
 											target="_blank"
 										>
-											<IonIcon icon={logoInstagram} />
+											<IonIcon color={"dark"} icon={logoInstagram} />
 										</Link>
 									</IonCol>
 									<IonCol>
-										<IonIcon icon={logoLinkedin} />
+										<IonIcon color={"dark"} icon={logoLinkedin} />
 									</IonCol>
 									<IonCol>
-										<IonIcon icon={logoWhatsapp} />
+										<IonIcon color={"dark"} icon={logoWhatsapp} />
 									</IonCol>
 									<IonCol>
-										<IonIcon icon={logoDiscord} />
+										<IonIcon color={"dark"} icon={logoDiscord} />
 									</IonCol>
 								</IonRow>
 								<IonRow>
 									<IonCol>
-										<IonButton expand="block">My Resume</IonButton>
+										<Link
+											to={{
+												pathname:
+													"https://gerald-personal-website.vercel.app/GeraldImanuel_CV.pdf",
+											}}
+											target="_blank"
+										>
+											<IonButton expand="block">My Resume</IonButton>
+										</Link>
 									</IonCol>
 								</IonRow>
 							</IonGrid>

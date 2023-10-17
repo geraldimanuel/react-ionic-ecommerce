@@ -42,7 +42,12 @@ const Toolbar: React.FC<props> = ({ title, cartData }) => {
 				<IonButtons slot="end">
 					<Link to="/cart">
 						<IonBadge color={"danger"}>{cartCount}</IonBadge>
-						<IonIcon className="carousel" icon={cart} size="small" />
+						<IonIcon
+							color={"dark"}
+							className="carousel"
+							icon={cart}
+							size="small"
+						/>
 					</Link>
 				</IonButtons>
 			</IonToolbar>

@@ -6,6 +6,7 @@ import {
 	IonGrid,
 	IonIcon,
 	IonRow,
+	IonText,
 } from "@ionic/react";
 
 import "./Card.css";
@@ -33,8 +34,10 @@ const Card: React.FC<props> = ({
 		<IonCard>
 			<img alt="Silhouette of mountains" src={img} />
 			<IonCardHeader>
-				<IonCardSubtitle>{price}</IonCardSubtitle>
-				<p className="heading">{product}</p>
+				<IonCardSubtitle className="ion-no-margin">{price}</IonCardSubtitle>
+				<IonText className="heading" color={"dark"}>
+					{product}
+				</IonText>
 			</IonCardHeader>
 
 			<IonCardContent>
@@ -46,7 +49,12 @@ const Card: React.FC<props> = ({
 							size="small"
 							onClick={wishlistProps}
 						/>
-						<IonIcon icon={bagAdd} color="" size="small" onClick={cartProps} />
+						<IonIcon
+							color={"dark"}
+							icon={bagAdd}
+							size="small"
+							onClick={cartProps}
+						/>
 					</IonRow>
 				</IonGrid>
 			</IonCardContent>

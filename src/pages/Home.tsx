@@ -28,6 +28,11 @@ import "./Home.css";
 import Card from "../components/Card";
 import Toolbar from "../components/Toolbar";
 
+// import assets
+// import Gitar_1 from "../assets/products/Gitar_5.webp";
+// import Gitar_2 from "../assets/products/Gitar_6.webp";
+// import Gitar_3 from "../assets/products/Gitar_7.webp";
+
 type props = {
 	products: any;
 	addToWishlist: any;
@@ -62,19 +67,22 @@ const Home: React.FC<props> = ({ products, addToWishlist, addToCart }) => {
 					>
 						<SwiperSlide>
 							<img
-								src="https://ionicframework.com/docs/img/demos/card-media.png"
+								className="swiper"
+								src="./assets/products/Gitar_7.webp"
 								alt=""
 							/>
 						</SwiperSlide>
 						<SwiperSlide>
 							<img
-								src="https://ionicframework.com/docs/img/demos/card-media.png"
+								className="swiper"
+								src="./assets/products/Gitar_6.webp"
 								alt=""
 							/>
 						</SwiperSlide>
 						<SwiperSlide>
 							<img
-								src="https://ionicframework.com/docs/img/demos/card-media.png"
+								className="swiper"
+								src="./assets/products/Gitar_5.webp"
 								alt=""
 							/>
 						</SwiperSlide>
@@ -83,12 +91,12 @@ const Home: React.FC<props> = ({ products, addToWishlist, addToCart }) => {
 						<IonRow>
 							{products?.map(
 								(
-									product: { name: string; price: number },
+									product: { name: string; price: number; img: string },
 									index: Key | null | undefined
 								) => (
 									<IonCol key={index} size="6">
 										<Card
-											img="https://ionicframework.com/docs/img/demos/card-media.png"
+											img={product.img}
 											product={product.name}
 											price={product.price.toLocaleString("id-ID", {
 												style: "currency",

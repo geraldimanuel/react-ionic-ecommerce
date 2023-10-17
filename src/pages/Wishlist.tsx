@@ -105,7 +105,7 @@ const Wishlist: React.FC<props> = ({
 				<IonContent className="">
 					{wishlist?.map(
 						(
-							product: { name: string; price: number },
+							product: { name: string; price: number; img: string },
 							index: Key | null | undefined
 						) => (
 							<IonItemSliding key={index} ref={slidingOptionsRef}>
@@ -114,7 +114,7 @@ const Wishlist: React.FC<props> = ({
 										color="danger"
 										onClick={startDeleteProductHandler.bind(null, product)}
 									>
-										<IonIcon slot="icon-only" icon={trash} />
+										<IonIcon color={"dark"} slot="icon-only" icon={trash} />
 									</IonItemOption>
 								</IonItemOptions>
 								<IonItemOptions side="end">
@@ -122,14 +122,14 @@ const Wishlist: React.FC<props> = ({
 										color="success"
 										onClick={addToCartHandler.bind(null, product)}
 									>
-										<IonIcon slot="icon-only" icon={cart} />
+										<IonIcon color={"dark"} slot="icon-only" icon={cart} />
 									</IonItemOption>
 								</IonItemOptions>
 								<IonItem lines="full" button className="">
 									<IonGrid>
 										<IonRow className="ion-align-items-center">
 											<IonCol size="3.4">
-												<IonImg src="https://ionicframework.com/docs/img/demos/card-media.png" />
+												<IonImg src={product.img} />
 											</IonCol>
 											<IonCol size="">
 												<h3>{product.name}</h3>

@@ -38,3 +38,9 @@ p.subheading {
 p.text {
     font-size: 11px;
 }
+
+
+ion-avatar {
+    width: 75px;
+    height: 75px;
+}

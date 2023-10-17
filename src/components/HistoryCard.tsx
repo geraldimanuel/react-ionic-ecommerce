@@ -34,7 +34,7 @@ const HistoryCard: React.FC<props> = ({ transactionCode, totalPrice }) => {
 						</IonCardContent>
 					</IonCol>
 					<IonCol size="1.5">
-						<IonIcon icon={chevronForward} size="large" />
+						<IonIcon color={"dark"} icon={chevronForward} size="large" />
 					</IonCol>
 				</IonRow>
 			</IonGrid>

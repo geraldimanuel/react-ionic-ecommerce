@@ -4,19 +4,24 @@ import {
 	IonGrid,
 	IonHeader,
 	IonIcon,
+	IonLabel,
 	IonModal,
 	IonPage,
 	IonRow,
+	IonSegment,
+	IonSegmentButton,
 	IonTitle,
 	IonToolbar,
 } from "@ionic/react";
-import React, { Key, useState } from "react";
+import React, { Key, useEffect, useState } from "react";
 
 import { connect } from "react-redux";
 
 import Toolbar from "../components/Toolbar";
 import HistoryCard from "../components/HistoryCard";
 import { chevronBack } from "ionicons/icons";
+
+import "./History.css";
 
 type props = {
 	orderData: any;
@@ -31,12 +36,46 @@ const History: React.FC<props> = ({ orderData }) => {
 		setIsDetail(!isDetail);
 	};
 
+	const [sortedOrder, setSortedOrder] = useState([] as any); // Initial state for sorted data
+	const [sortDirection, setSortDirection] = useState("asc"); // Initial sorting direction
+
+	const sortData = (data: any, property: any, direction: any) => {
+		const sortedData = [...data];
+		return sortedData.sort((a, b) => {
+			if (direction === "asc") {
+				return a[property] - b[property];
+			} else {
+				return b[property] - a[property];
+			}
+		});
+	};
+
+	const sortOrdersByPrice = () => {
+		const sorted = sortData(orderData, "total", sortDirection);
+		setSortedOrder(sorted);
+		setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+
+		console.log(sorted);
+	};
+
+	const sortOrdersByTransactionCode = () => {
+		const sorted = sortData(orderData, "transactionCode", sortDirection);
+		setSortedOrder(sorted);
+		setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+		console.log(sorted);
+	};
+
+	useEffect(() => {
+		setSortedOrder(orderData);
+	}, [orderData]);
+
 	return (
 		<>
 			<IonModal isOpen={isDetail}>
 				<IonHeader>
 					<IonToolbar>
 						<IonIcon
+							color={"dark"}
 							icon={chevronBack}
 							size="small"
 							onClick={() => setIsDetail(!isDetail)}
@@ -91,9 +130,20 @@ const History: React.FC<props> = ({ orderData }) => {
 				<IonHeader>
 					<Toolbar title="History" />
 				</IonHeader>
-				<IonContent className="ion-padding">
+				<IonContent className="">
+					<IonSegment className="">
+						<IonSegmentButton value="default" onClick={sortOrdersByPrice}>
+							<IonLabel>by price</IonLabel>
+						</IonSegmentButton>
+						<IonSegmentButton
+							value="segment"
+							onClick={sortOrdersByTransactionCode}
+						>
+							<IonLabel>by ID</IonLabel>
+						</IonSegmentButton>
+					</IonSegment>
 					<IonGrid>
-						{orderData?.map(
+						{sortedOrder?.map(
 							(
 								order: { transactionCode: string; total: number },
 								index: Key | null | undefined

@@ -5,6 +5,7 @@ interface Product {
 	name: string;
 	price: number;
 	qty: number;
+	img: string;
 }
 
 interface OrderDetails {
@@ -25,39 +26,50 @@ const initialState: ProductState = {
 	products: [
 		{
 			id: 1,
-			name: "Product 1",
-			price: 10000,
+			name: "Suhr Antique",
+			price: 36000000,
 			qty: 0,
+			img: "./assets/products/Gitar_1.webp"
 		},
 		{
 			id: 2,
-			name: "Product 2",
-			price: 20000,
+			name: "PRS SE24",
+			price: 68000000,
 			qty: 0,
+			img: "./assets/products/Gitar_2.webp"
+
 		},
 		{
 			id: 3,
-			name: "Product 3",
-			price: 50000,
+			name: "PRS CS24",
+			price: 57000000,
 			qty: 0,
+			img: "./assets/products/Gitar_3.webp"
+
 		},
 		{
 			id: 4,
-			name: "Product 4",
-			price: 70000,
+			name: "PRS SE Custom",
+			price: 53000000,
 			qty: 0,
+			img: "./assets/products/Gitar_4.webp"
+
 		},
 		{
 			id: 5,
-			name: "Product 5",
-			price: 25000,
+			name: "Tom Anderson S",
+			price: 32000000,
 			qty: 0,
+			img: "./assets/products/Gitar_5.webp"
+
 		},
 		{
 			id: 6,
-			name: "Product 6",
-			price: 150000,
+			name: "Ibanez RG",
+			price: 21000000,
 			qty: 0,
+			img: "./assets/products/Gitar_6.webp"
+
 		},
 	],
 	wishlist: [],
@@ -87,7 +99,7 @@ const productSlice = createSlice({
 		},
 
 		addToCart: (state, action) => {
-			const { id, name, price } = action.payload;
+			const { id, name, price,img } = action.payload;
 			const existingProduct = state.cart.find((product) => product.id === id);
 
 			if (existingProduct) {
@@ -99,6 +111,7 @@ const productSlice = createSlice({
 					id,
 					name,
 					price,
+					img,
 					qty: 1,
 				});
 			}

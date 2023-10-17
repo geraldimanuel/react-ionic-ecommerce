@@ -114,7 +114,12 @@ const Cart: React.FC<props> = ({
 				<IonContent className="">
 					{cartData?.map(
 						(
-							product: { name: string; price: number; qty: number },
+							product: {
+								name: string;
+								price: number;
+								qty: number;
+								img: string;
+							},
 							index: Key | null | undefined
 						) => (
 							<IonItemSliding key={index} ref={slidingOptionsRef}>
@@ -123,14 +128,14 @@ const Cart: React.FC<props> = ({
 										color="danger"
 										onClick={startDeleteProductHandler.bind(null, product)}
 									>
-										<IonIcon slot="icon-only" icon={trash} />
+										<IonIcon color={"dark"} slot="icon-only" icon={trash} />
 									</IonItemOption>
 								</IonItemOptions>
-								<IonItem lines="full" button className="">
+								<IonItem lines="full" className="">
 									<IonGrid>
 										<IonRow className="ion-align-items-center">
 											<IonCol size="3.2">
-												<IonImg src="https://ionicframework.com/docs/img/demos/card-media.png" />
+												<IonImg src={product.img} />
 											</IonCol>
 											<IonCol size="">
 												<h4>{product.name}</h4>
@@ -146,6 +151,7 @@ const Cart: React.FC<props> = ({
 													<IonRow className="ion-align-items-center">
 														<IonCol size="auto" className="ion-padding-end">
 															<IonIcon
+																color={"dark"}
 																size="small"
 																icon={remove}
 																onClick={decreaseQty.bind(null, product)}
@@ -156,6 +162,7 @@ const Cart: React.FC<props> = ({
 														</IonCol>
 														<IonCol size="auto" className="ion-padding-start">
 															<IonIcon
+																color={"dark"}
 																size="small"
 																icon={add}
 																onClick={increaseQty.bind(null, product)}
@@ -172,7 +179,7 @@ const Cart: React.FC<props> = ({
 					)}
 				</IonContent>
 				<IonFooter>
-					<IonToolbar className="footer">
+					<IonToolbar className="footer" color={"dark"}>
 						<IonGrid className="ion-padding-horizontal">
 							<IonRow>
 								<IonCol>
