@@ -28,11 +28,6 @@ import "./Home.css";
 import Card from "../components/Card";
 import Toolbar from "../components/Toolbar";
 
-// import assets
-// import Gitar_1 from "../assets/products/Gitar_5.webp";
-// import Gitar_2 from "../assets/products/Gitar_6.webp";
-// import Gitar_3 from "../assets/products/Gitar_7.webp";
-
 type props = {
 	products: any;
 	addToWishlist: any;

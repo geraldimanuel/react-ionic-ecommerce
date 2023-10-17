@@ -54,15 +54,12 @@ const History: React.FC<props> = ({ orderData }) => {
 		const sorted = sortData(orderData, "total", sortDirection);
 		setSortedOrder(sorted);
 		setSortDirection(sortDirection === "asc" ? "desc" : "asc");
-
-		console.log(sorted);
 	};
 
 	const sortOrdersByTransactionCode = () => {
 		const sorted = sortData(orderData, "transactionCode", sortDirection);
 		setSortedOrder(sorted);
 		setSortDirection(sortDirection === "asc" ? "desc" : "asc");
-		console.log(sorted);
 	};
 
 	useEffect(() => {
