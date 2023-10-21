@@ -76,13 +76,30 @@ const Profile: React.FC = () => {
 										</Link>
 									</IonCol>
 									<IonCol>
-										<IonIcon color={"dark"} icon={logoLinkedin} />
+										<Link
+											to={{
+												pathname: "https://www.linkedin.com/in/geraldimanuel",
+											}}
+											target="_blank"
+										>
+											<IonIcon color={"dark"} icon={logoLinkedin} />
+										</Link>
 									</IonCol>
 									<IonCol>
-										<IonIcon color={"dark"} icon={logoWhatsapp} />
+										<Link
+											to={{ pathname: "https://wa.me/+62812345678" }}
+											target="_blank"
+										>
+											<IonIcon color={"dark"} icon={logoWhatsapp} />
+										</Link>
 									</IonCol>
 									<IonCol>
-										<IonIcon color={"dark"} icon={logoDiscord} />
+										<Link
+											to={{ pathname: "https://discord.gg/user/geraldimanuel" }}
+											target="_blank"
+										>
+											<IonIcon color={"dark"} icon={logoDiscord} />
+										</Link>
 									</IonCol>
 								</IonRow>
 								<IonRow>
