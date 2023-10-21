@@ -1,4 +1,5 @@
 import {
+	IonButtons,
 	IonCol,
 	IonContent,
 	IonGrid,
@@ -71,12 +72,14 @@ const History: React.FC<props> = ({ orderData }) => {
 			<IonModal isOpen={isDetail}>
 				<IonHeader>
 					<IonToolbar>
-						<IonIcon
-							color={"dark"}
-							icon={chevronBack}
-							size="small"
-							onClick={() => setIsDetail(!isDetail)}
-						/>
+						<IonButtons slot="start">
+							<IonIcon
+								color={"dark"}
+								icon={chevronBack}
+								size="small"
+								onClick={() => setIsDetail(!isDetail)}
+							/>
+						</IonButtons>
 						<IonTitle>Order Details</IonTitle>
 					</IonToolbar>
 				</IonHeader>
